@@ -20,9 +20,9 @@ class DoublyCircularLinkedList:
             new_node.next = self.head
         else:
             self.head = new_node
-        self.end = new_node
-        self.count += 1
-        return True
+            self.end = new_node
+            self.count += 1
+            return True
 
     def add_at_head(self, data) -> bool:   
         new_node = Node(data)
@@ -33,9 +33,9 @@ class DoublyCircularLinkedList:
             self.end.next = new_node
         else:
             self.end = new_node
-        self.head = new_node
-        self.count += 1
-        return True
+            self.head = new_node
+            self.count += 1
+            return True
     
     def add_at_index(self, index, data) -> bool:
         if index < 0 or index >= self.count:
@@ -49,12 +49,12 @@ class DoublyCircularLinkedList:
         curr_node = self.head
         for i in range(index):
             curr_node = curr_node.next
-        new_node.previous = curr_node.previous
-        new_node.next = curr_node
-        curr_node.previous.next = new_node
-        curr_node.previous = new_node
-        self.count += 1
-        return True        
+            new_node.previous = curr_node.previous
+            new_node.next = curr_node
+            curr_node.previous.next = new_node
+            curr_node.previous = new_node
+            self.count += 1
+            return True        
 
     def get(self, index) -> int:
         if index < 0 or index >= self.count:
@@ -85,10 +85,10 @@ class DoublyCircularLinkedList:
         curr_node = self.head
         for ind in range(index):
             curr_node = curr_node.next
-        curr_node.previous.next = curr_node.next
-        curr_node.next.previous = curr_node.previous
-        self.count -= 1
-        return True
+            curr_node.previous.next = curr_node.next
+            curr_node.next.previous = curr_node.previous
+            self.count -= 1
+            return True
         
 
     def get_previous_next(self, index) -> list:
@@ -97,27 +97,27 @@ class DoublyCircularLinkedList:
         curr_node = self.head
         for ind in range(index):
             curr_node = curr_node.next
-        return [curr_node.previous.data, curr_node.next.data]
+            return [curr_node.previous.data, curr_node.next.data]
         
 
 # Do not change the following code
 operations = []
 for specific_operation in input().split(','):
     operations.append(specific_operation.strip())
-input_data = input()
-data = []
-iteration_count = 0
+    input_data = input()
+    data = []
+    iteration_count = 0
 
 for item in input_data.split(', '):
     inner_list = []
     if item.isnumeric():
         data.append(int(item))
-    elif item.startswith('['):
+        elif item.startswith('['):
         item = item[1:-1]
         for letter in item.split(','):
-            if letter.isnumeric():
-                inner_list.append(int(letter))
-        data.append(inner_list)
+             if letter.isnumeric():
+                    inner_list.append(int(letter))
+                    data.append(inner_list)
 
 obj = DoublyCircularLinkedList()
 result = []
